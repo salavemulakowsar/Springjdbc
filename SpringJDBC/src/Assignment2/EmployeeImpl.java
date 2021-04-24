@@ -25,5 +25,13 @@ private JdbcTemplate jdbcTemplate = new JdbcTemplate(getDataSource());
 		DriverManagerDataSource dataSource = new DriverManagerDataSource(url,username,password);
 		return dataSource;
 	}
+	@Override
+	public void delRecordById(int i) {
+		// TODO Auto-generated method stub
+		String delSql = "DELETE FROM EMP_TABLE WHERE id=?";
+		int noRecordDeleted =jdbcTemplate.update(delSql,i);
+		System.out.println(noRecordDeleted);
+		
+	}
 
 }
